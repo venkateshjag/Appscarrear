@@ -1,0 +1,790 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="aicpdataModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="categoryid" />
+          </Key>
+          <Property Name="categoryid" Type="int" Nullable="false" />
+          <Property Name="categoryname" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="state" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="degree">
+          <Key>
+            <PropertyRef Name="degreeid" />
+          </Key>
+          <Property Name="degreeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="degreename" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="job_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="jobtype" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="jobs">
+          <Key>
+            <PropertyRef Name="jobid" />
+          </Key>
+          <Property Name="jobid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="jobname" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="company" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+          <Property Name="noofpositions" Type="int" />
+          <Property Name="jobnumber" Type="varchar" MaxLength="45" />
+          <Property Name="experience" Type="int" />
+          <Property Name="jobtypeid" Type="int" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="SubCategoryId" Type="int" />
+          <Property Name="SalaryLimit" Type="int" />
+          <Property Name="Qualification" Type="int" />
+          <Property Name="description" Type="varchar" MaxLength="20000" />
+          <Property Name="posteddate" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="jobseekerprofile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="highestdegree" Type="int" />
+          <Property Name="Experience" Type="int" />
+          <Property Name="categoryid" Type="int" Nullable="false" />
+          <Property Name="subcategoryid" Type="int" />
+          <Property Name="CurrentCompanyName" Type="varchar" MaxLength="50" />
+          <Property Name="CurrentSalary" Type="int" />
+          <Property Name="ResumeName" Type="varchar" MaxLength="50" />
+          <Property Name="createddate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="modifieddate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="resumeguideline">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Guideline" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sampleresumeformat">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="SubCategoryID" Type="int" />
+          <Property Name="ResumeFormat" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="securityquestions">
+          <Key>
+            <PropertyRef Name="questionid" />
+          </Key>
+          <Property Name="questionid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="question" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subcategory">
+          <Key>
+            <PropertyRef Name="subcategoryid" />
+          </Key>
+          <Property Name="subcategoryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subcategoryname" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="categoryid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userdetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Address1" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Address2" Type="varchar" MaxLength="45" />
+          <Property Name="City" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Country" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Zipcode" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="WorkContact" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="MobileContact" Type="varchar" MaxLength="45" />
+          <Property Name="EmailID" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="createddate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="modifieddate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="categoryid" Type="int" Nullable="false" />
+          <Property Name="subcategoryid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="questionid" Type="int" Nullable="false" />
+          <Property Name="hintanswer" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="createddate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="modifieddate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="IsForgotPassword" Type="bit" />
+          <Property Name="hintquestion2id" Type="int" Nullable="false" />
+          <Property Name="hintanswer2" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="hintquestion3id" Type="int" Nullable="false" />
+          <Property Name="hintanswer3" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users_applied_job">
+          <Key>
+            <PropertyRef Name="userjobapplyid" />
+          </Key>
+          <Property Name="userjobapplyid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="jobid" Type="int" Nullable="false" />
+          <Property Name="userid" Type="int" Nullable="false" />
+          <Property Name="ApplyDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <Association Name="FK_user_id">
+          <End Role="users" Type="Self.users" Multiplicity="0..1" />
+          <End Role="jobseekerprofile" Type="Self.jobseekerprofile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="jobseekerprofile">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userid">
+          <End Role="users" Type="Self.users" Multiplicity="0..1" />
+          <End Role="userdetails" Type="Self.userdetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="userdetails">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userjobapply_users">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="users_applied_job" Type="Self.users_applied_job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="users_applied_job">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="users_securityquestion_fk1">
+          <End Role="securityquestions" Type="Self.securityquestions" Multiplicity="1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="securityquestions">
+              <PropertyRef Name="questionid" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="questionid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="users_securityquestion_fk2">
+          <End Role="securityquestions" Type="Self.securityquestions" Multiplicity="1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="securityquestions">
+              <PropertyRef Name="questionid" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="hintquestion2id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="users_securityquestion_fk3">
+          <End Role="securityquestions" Type="Self.securityquestions" Multiplicity="1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="securityquestions">
+              <PropertyRef Name="questionid" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="hintquestion3id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetAppliedJob" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="aicpdata">
+          <Parameter Name="fromDate" Type="date" Mode="In" />
+          <Parameter Name="toDate" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GetJobReportData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="aicpdata">
+          <Parameter Name="fromDate" Type="date" Mode="In" />
+          <Parameter Name="toDate" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GetResumeFormat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="aicpdata">
+          <Parameter Name="catId" Type="int" Mode="In" />
+          <Parameter Name="subCatId" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="aicpdataModelStoreContainer">
+          <EntitySet Name="category" EntityType="Self.category" Schema="aicpdata" store:Type="Tables" />
+          <EntitySet Name="country" EntityType="Self.country" Schema="aicpdata" store:Type="Tables" />
+          <EntitySet Name="degree" EntityType="Self.degree" Schema="aicpdata" store:Type="Tables" />
+          <EntitySet Name="job_type" EntityType="Self.job_type" Schema="aicpdata" store:Type="Tables" />
+          <EntitySet Name="jobs" EntityType="Self.jobs" Schema="aicpdata" store:Type="Tables" />
+          <EntitySet Name="jobseekerprofile" EntityType="Self.jobseekerprofile" Schema="aicpdata" store:Type="Tables" />
+          <EntitySet Name="resumeguideline" EntityType="Self.resumeguideline" Schema="aicpdata" store:Type="Tables" />
+          <EntitySet Name="role" EntityType="Self.role" Schema="aicpdata" store:Type="Tables" />
+          <EntitySet Name="sampleresumeformat" EntityType="Self.sampleresumeformat" Schema="aicpdata" store:Type="Tables" />
+          <EntitySet Name="securityquestions" EntityType="Self.securityquestions" Schema="aicpdata" store:Type="Tables" />
+          <EntitySet Name="subcategory" EntityType="Self.subcategory" Schema="aicpdata" store:Type="Tables" />
+          <EntitySet Name="userdetails" EntityType="Self.userdetails" Schema="aicpdata" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="aicpdata" store:Type="Tables" />
+          <EntitySet Name="users_applied_job" EntityType="Self.users_applied_job" Schema="aicpdata" store:Type="Tables" />
+          <AssociationSet Name="FK_user_id" Association="Self.FK_user_id">
+            <End Role="users" EntitySet="users" />
+            <End Role="jobseekerprofile" EntitySet="jobseekerprofile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userid" Association="Self.FK_userid">
+            <End Role="users" EntitySet="users" />
+            <End Role="userdetails" EntitySet="userdetails" />
+          </AssociationSet>
+          <AssociationSet Name="userjobapply_users" Association="Self.userjobapply_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="users_applied_job" EntitySet="users_applied_job" />
+          </AssociationSet>
+          <AssociationSet Name="users_securityquestion_fk1" Association="Self.users_securityquestion_fk1">
+            <End Role="securityquestions" EntitySet="securityquestions" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="users_securityquestion_fk2" Association="Self.users_securityquestion_fk2">
+            <End Role="securityquestions" EntitySet="securityquestions" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="users_securityquestion_fk3" Association="Self.users_securityquestion_fk3">
+            <End Role="securityquestions" EntitySet="securityquestions" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="aicpdataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="categoryid" />
+          </Key>
+          <Property Name="categoryid" Type="Int32" Nullable="false" />
+          <Property Name="categoryname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="degree">
+          <Key>
+            <PropertyRef Name="degreeid" />
+          </Key>
+          <Property Name="degreeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="degreename" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="job_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="jobtype" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="job">
+          <Key>
+            <PropertyRef Name="jobid" />
+          </Key>
+          <Property Name="jobid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="jobname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="company" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="noofpositions" Type="Int32" />
+          <Property Name="jobnumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="experience" Type="Int32" />
+          <Property Name="jobtypeid" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="SubCategoryId" Type="Int32" />
+          <Property Name="SalaryLimit" Type="Int32" />
+          <Property Name="Qualification" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="20000" FixedLength="false" Unicode="false" />
+          <Property Name="posteddate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="jobseekerprofile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="highestdegree" Type="Int32" />
+          <Property Name="Experience" Type="Int32" />
+          <Property Name="categoryid" Type="Int32" Nullable="false" />
+          <Property Name="subcategoryid" Type="Int32" />
+          <Property Name="CurrentCompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentSalary" Type="Int32" />
+          <Property Name="ResumeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createddate" Type="DateTime" Nullable="false" />
+          <Property Name="modifieddate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.FK_user_id" FromRole="jobseekerprofile" ToRole="users" />
+        </EntityType>
+        <EntityType Name="resumeguideline">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Guideline" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sampleresumeformat">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="SubCategoryID" Type="Int32" />
+          <Property Name="ResumeFormat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="securityquestion">
+          <Key>
+            <PropertyRef Name="questionid" />
+          </Key>
+          <Property Name="questionid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="question" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="users" Relationship="Self.users_securityquestion_fk1" FromRole="securityquestions" ToRole="users" />
+          <NavigationProperty Name="users1" Relationship="Self.users_securityquestion_fk2" FromRole="securityquestions" ToRole="users" />
+          <NavigationProperty Name="users2" Relationship="Self.users_securityquestion_fk3" FromRole="securityquestions" ToRole="users" />
+        </EntityType>
+        <EntityType Name="subcategory">
+          <Key>
+            <PropertyRef Name="subcategoryid" />
+          </Key>
+          <Property Name="subcategoryid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subcategoryname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="categoryid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userdetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address2" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Zipcode" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WorkContact" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MobileContact" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="EmailID" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="createddate" Type="DateTime" Nullable="false" />
+          <Property Name="modifieddate" Type="DateTime" Nullable="false" />
+          <Property Name="categoryid" Type="Int32" Nullable="false" />
+          <Property Name="subcategoryid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.FK_userid" FromRole="userdetails" ToRole="users" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="questionid" Type="Int32" Nullable="false" />
+          <Property Name="hintanswer" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="createddate" Type="DateTime" Nullable="false" />
+          <Property Name="modifieddate" Type="DateTime" Nullable="false" />
+          <Property Name="IsForgotPassword" Type="Boolean" />
+          <Property Name="hintquestion2id" Type="Int32" Nullable="false" />
+          <Property Name="hintanswer2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hintquestion3id" Type="Int32" Nullable="false" />
+          <Property Name="hintanswer3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="jobseekerprofiles" Relationship="Self.FK_user_id" FromRole="users" ToRole="jobseekerprofile" />
+          <NavigationProperty Name="securityquestion" Relationship="Self.users_securityquestion_fk1" FromRole="users" ToRole="securityquestions" />
+          <NavigationProperty Name="securityquestion1" Relationship="Self.users_securityquestion_fk2" FromRole="users" ToRole="securityquestions" />
+          <NavigationProperty Name="securityquestion2" Relationship="Self.users_securityquestion_fk3" FromRole="users" ToRole="securityquestions" />
+          <NavigationProperty Name="userdetails" Relationship="Self.FK_userid" FromRole="users" ToRole="userdetails" />
+          <NavigationProperty Name="users_applied_job" Relationship="Self.userjobapply_users" FromRole="users" ToRole="users_applied_job" />
+        </EntityType>
+        <EntityType Name="users_applied_job">
+          <Key>
+            <PropertyRef Name="userjobapplyid" />
+          </Key>
+          <Property Name="userjobapplyid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="jobid" Type="Int32" Nullable="false" />
+          <Property Name="userid" Type="Int32" Nullable="false" />
+          <Property Name="ApplyDate" Type="DateTime" />
+          <NavigationProperty Name="user" Relationship="Self.userjobapply_users" FromRole="users_applied_job" ToRole="users" />
+        </EntityType>
+        <Association Name="FK_user_id">
+          <End Role="users" Type="Self.user" Multiplicity="0..1" />
+          <End Role="jobseekerprofile" Type="Self.jobseekerprofile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="jobseekerprofile">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="users_securityquestion_fk1">
+          <End Role="securityquestions" Type="Self.securityquestion" Multiplicity="1" />
+          <End Role="users" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="securityquestions">
+              <PropertyRef Name="questionid" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="questionid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="users_securityquestion_fk2">
+          <End Role="securityquestions" Type="Self.securityquestion" Multiplicity="1" />
+          <End Role="users" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="securityquestions">
+              <PropertyRef Name="questionid" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="hintquestion2id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="users_securityquestion_fk3">
+          <End Role="securityquestions" Type="Self.securityquestion" Multiplicity="1" />
+          <End Role="users" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="securityquestions">
+              <PropertyRef Name="questionid" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="hintquestion3id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userid">
+          <End Role="users" Type="Self.user" Multiplicity="0..1" />
+          <End Role="userdetails" Type="Self.userdetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="userdetails">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userjobapply_users">
+          <End Role="users" Type="Self.user" Multiplicity="1" />
+          <End Role="users_applied_job" Type="Self.users_applied_job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="users_applied_job">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="aicpdataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="categories" EntityType="Self.category" />
+          <EntitySet Name="countries" EntityType="Self.country" />
+          <EntitySet Name="degrees" EntityType="Self.degree" />
+          <EntitySet Name="job_type" EntityType="Self.job_type" />
+          <EntitySet Name="jobs" EntityType="Self.job" />
+          <EntitySet Name="jobseekerprofiles" EntityType="Self.jobseekerprofile" />
+          <EntitySet Name="resumeguidelines" EntityType="Self.resumeguideline" />
+          <EntitySet Name="roles" EntityType="Self.role" />
+          <EntitySet Name="sampleresumeformats" EntityType="Self.sampleresumeformat" />
+          <EntitySet Name="securityquestions" EntityType="Self.securityquestion" />
+          <EntitySet Name="subcategories" EntityType="Self.subcategory" />
+          <EntitySet Name="userdetails" EntityType="Self.userdetail" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="users_applied_job" EntityType="Self.users_applied_job" />
+          <AssociationSet Name="FK_user_id" Association="Self.FK_user_id">
+            <End Role="users" EntitySet="users" />
+            <End Role="jobseekerprofile" EntitySet="jobseekerprofiles" />
+          </AssociationSet>
+          <AssociationSet Name="users_securityquestion_fk1" Association="Self.users_securityquestion_fk1">
+            <End Role="securityquestions" EntitySet="securityquestions" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="users_securityquestion_fk2" Association="Self.users_securityquestion_fk2">
+            <End Role="securityquestions" EntitySet="securityquestions" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="users_securityquestion_fk3" Association="Self.users_securityquestion_fk3">
+            <End Role="securityquestions" EntitySet="securityquestions" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userid" Association="Self.FK_userid">
+            <End Role="users" EntitySet="users" />
+            <End Role="userdetails" EntitySet="userdetails" />
+          </AssociationSet>
+          <AssociationSet Name="userjobapply_users" Association="Self.userjobapply_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="users_applied_job" EntitySet="users_applied_job" />
+          </AssociationSet>
+          <FunctionImport Name="GetAppliedJob" ReturnType="Collection(aicpdataModel.GetAppliedJob_Result)">
+            <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="toDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GetJobReportData" ReturnType="Collection(aicpdataModel.GetJobReportData_Result)">
+            <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="toDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GetResumeFormat" ReturnType="Collection(aicpdataModel.GetResumeFormat_Result)">
+            <Parameter Name="catId" Mode="In" Type="Int32" />
+            <Parameter Name="subCatId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetAppliedJob_Result" />
+        <ComplexType Name="GetJobReportData_Result" />
+        <ComplexType Name="GetResumeFormat_Result" />
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="aicpdataModelStoreContainer" CdmEntityContainer="aicpdataEntities">
+          <EntitySetMapping Name="categories">
+            <EntityTypeMapping TypeName="aicpdataModel.category">
+              <MappingFragment StoreEntitySet="category">
+                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+                <ScalarProperty Name="categoryname" ColumnName="categoryname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="countries">
+            <EntityTypeMapping TypeName="aicpdataModel.country">
+              <MappingFragment StoreEntitySet="country">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="state" ColumnName="state" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="degrees">
+            <EntityTypeMapping TypeName="aicpdataModel.degree">
+              <MappingFragment StoreEntitySet="degree">
+                <ScalarProperty Name="degreeid" ColumnName="degreeid" />
+                <ScalarProperty Name="degreename" ColumnName="degreename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="job_type">
+            <EntityTypeMapping TypeName="aicpdataModel.job_type">
+              <MappingFragment StoreEntitySet="job_type">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="jobtype" ColumnName="jobtype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jobs">
+            <EntityTypeMapping TypeName="aicpdataModel.job">
+              <MappingFragment StoreEntitySet="jobs">
+                <ScalarProperty Name="jobid" ColumnName="jobid" />
+                <ScalarProperty Name="jobname" ColumnName="jobname" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="noofpositions" ColumnName="noofpositions" />
+                <ScalarProperty Name="jobnumber" ColumnName="jobnumber" />
+                <ScalarProperty Name="experience" ColumnName="experience" />
+                <ScalarProperty Name="jobtypeid" ColumnName="jobtypeid" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="SubCategoryId" ColumnName="SubCategoryId" />
+                <ScalarProperty Name="SalaryLimit" ColumnName="SalaryLimit" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="posteddate" ColumnName="posteddate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jobseekerprofiles">
+            <EntityTypeMapping TypeName="aicpdataModel.jobseekerprofile">
+              <MappingFragment StoreEntitySet="jobseekerprofile">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="highestdegree" ColumnName="highestdegree" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+                <ScalarProperty Name="subcategoryid" ColumnName="subcategoryid" />
+                <ScalarProperty Name="CurrentCompanyName" ColumnName="CurrentCompanyName" />
+                <ScalarProperty Name="CurrentSalary" ColumnName="CurrentSalary" />
+                <ScalarProperty Name="ResumeName" ColumnName="ResumeName" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="resumeguidelines">
+            <EntityTypeMapping TypeName="aicpdataModel.resumeguideline">
+              <MappingFragment StoreEntitySet="resumeguideline">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Guideline" ColumnName="Guideline" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="aicpdataModel.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sampleresumeformats">
+            <EntityTypeMapping TypeName="aicpdataModel.sampleresumeformat">
+              <MappingFragment StoreEntitySet="sampleresumeformat">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="ResumeFormat" ColumnName="ResumeFormat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="securityquestions">
+            <EntityTypeMapping TypeName="aicpdataModel.securityquestion">
+              <MappingFragment StoreEntitySet="securityquestions">
+                <ScalarProperty Name="questionid" ColumnName="questionid" />
+                <ScalarProperty Name="question" ColumnName="question" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subcategories">
+            <EntityTypeMapping TypeName="aicpdataModel.subcategory">
+              <MappingFragment StoreEntitySet="subcategory">
+                <ScalarProperty Name="subcategoryid" ColumnName="subcategoryid" />
+                <ScalarProperty Name="subcategoryname" ColumnName="subcategoryname" />
+                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userdetails">
+            <EntityTypeMapping TypeName="aicpdataModel.userdetail">
+              <MappingFragment StoreEntitySet="userdetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+                <ScalarProperty Name="WorkContact" ColumnName="WorkContact" />
+                <ScalarProperty Name="MobileContact" ColumnName="MobileContact" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+                <ScalarProperty Name="subcategoryid" ColumnName="subcategoryid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="aicpdataModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="questionid" ColumnName="questionid" />
+                <ScalarProperty Name="hintanswer" ColumnName="hintanswer" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="IsForgotPassword" ColumnName="IsForgotPassword" />
+                <ScalarProperty Name="hintquestion2id" ColumnName="hintquestion2id" />
+                <ScalarProperty Name="hintanswer2" ColumnName="hintanswer2" />
+                <ScalarProperty Name="hintquestion3id" ColumnName="hintquestion3id" />
+                <ScalarProperty Name="hintanswer3" ColumnName="hintanswer3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users_applied_job">
+            <EntityTypeMapping TypeName="aicpdataModel.users_applied_job">
+              <MappingFragment StoreEntitySet="users_applied_job">
+                <ScalarProperty Name="userjobapplyid" ColumnName="userjobapplyid" />
+                <ScalarProperty Name="jobid" ColumnName="jobid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="ApplyDate" ColumnName="ApplyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAppliedJob" FunctionName="aicpdataModel.Store.GetAppliedJob">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aicpdataModel.GetAppliedJob_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetJobReportData" FunctionName="aicpdataModel.Store.GetJobReportData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aicpdataModel.GetJobReportData_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetResumeFormat" FunctionName="aicpdataModel.Store.GetResumeFormat">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aicpdataModel.GetResumeFormat_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

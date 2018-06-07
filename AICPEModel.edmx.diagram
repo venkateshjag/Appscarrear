@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="558b9a17306d462fb42f4bb7e9b65447" Name="Diagram1">
+        <EntityTypeShape EntityType="aicpdataModel.category" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="aicpdataModel.country" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="aicpdataModel.degree" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="aicpdataModel.job_type" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="aicpdataModel.job" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="aicpdataModel.jobseekerprofile" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="aicpdataModel.resumeguideline" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="aicpdataModel.role" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="aicpdataModel.sampleresumeformat" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="aicpdataModel.securityquestion" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="aicpdataModel.subcategory" Width="1.5" PointX="6" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="aicpdataModel.userdetail" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="aicpdataModel.user" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="aicpdataModel.users_applied_job" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
+        <AssociationConnector Association="aicpdataModel.FK_categoryid" ManuallyRouted="false" />
+        <AssociationConnector Association="aicpdataModel.FK_user_id" ManuallyRouted="false" />
+        <AssociationConnector Association="aicpdataModel.FK_RoleID" ManuallyRouted="false" />
+        <AssociationConnector Association="aicpdataModel.users_securityquestion_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="aicpdataModel.users_securityquestion_fk2" ManuallyRouted="false" />
+        <AssociationConnector Association="aicpdataModel.users_securityquestion_fk3" ManuallyRouted="false" />
+        <AssociationConnector Association="aicpdataModel.FK_subcategoryid" ManuallyRouted="false" />
+        <AssociationConnector Association="aicpdataModel.FK_userid" ManuallyRouted="false" />
+        <AssociationConnector Association="aicpdataModel.userjobapply_users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
